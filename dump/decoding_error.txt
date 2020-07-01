@@ -1,0 +1,164 @@
+{
+	expr: EParenthesis({
+		expr: ECheckType({
+			expr: EObjectDecl([{
+				expr: {
+					expr: EUntyped({
+						expr: ECall({
+							expr: EConst(CIdent(__js__))
+							pos: #pos
+						}, [{
+							expr: EConst(CString($$tre, DoubleQuotes))
+							pos: #pos
+						}])
+						pos: #pos
+					})
+					pos: #pos
+				}
+				field: $$typeof
+				quotes: Quoted
+			}, {
+				expr: {
+					expr: EParenthesis({
+						expr: ECheckType({
+							expr: EConst(CIdent(ApolloProvider))
+							pos: #pos
+						}, TPath({
+							name: ReactType
+							pack: [react]
+							params: []
+							sub: null
+						}))
+						pos: #pos
+					})
+					pos: #pos
+				}
+				field: type
+				quotes: null
+			}, {
+				expr: {
+					expr: EObjectDecl([{
+						expr: {
+							expr: EMeta({
+								name: :storedTypedExpr
+								params: []
+								pos: #pos
+							}, {
+								expr: EConst(CInt(9))
+								pos: #pos
+							})
+							pos: #pos
+						}
+						field: client
+						quotes: null
+					}, {
+						expr: {
+							expr: EParenthesis({
+								expr: ECheckType({
+									expr: EParenthesis({
+										expr: ECheckType({
+											expr: EObjectDecl([{
+												expr: {
+													expr: EUntyped({
+														expr: ECall({
+															expr: EConst(CIdent(__js__))
+															pos: #pos
+														}, [{
+															expr: EConst(CString($$tre, DoubleQuotes))
+															pos: #pos
+														}])
+														pos: #pos
+													})
+													pos: #pos
+												}
+												field: $$typeof
+												quotes: Quoted
+											}, {
+												expr: {
+													expr: EParenthesis({
+														expr: ECheckType({
+															expr: EConst(CIdent(App))
+															pos: #pos
+														}, TPath({
+															name: ReactType
+															pack: [react]
+															params: []
+															sub: null
+														}))
+														pos: #pos
+													})
+													pos: #pos
+												}
+												field: type
+												quotes: null
+											}, {
+												expr: {
+													expr: EBlock([])
+													pos: #pos
+												}
+												field: props
+												quotes: null
+											}, {
+												expr: {
+													expr: EConst(CIdent(null))
+													pos: #pos
+												}
+												field: key
+												quotes: null
+											}, {
+												expr: {
+													expr: EConst(CIdent(null))
+													pos: #pos
+												}
+												field: ref
+												quotes: null
+											}])
+											pos: #pos
+										}, TPath({
+											name: ReactComponent
+											pack: [react]
+											params: []
+											sub: ReactElement
+										}))
+										pos: #pos
+									})
+									pos: #pos
+								}, null <- expected enum value)
+								pos: #pos
+							})
+							pos: #pos
+						}
+						field: children
+						quotes: null
+					}])
+					pos: #pos
+				}
+				field: props
+				quotes: null
+			}, {
+				expr: {
+					expr: EConst(CIdent(null))
+					pos: #pos
+				}
+				field: key
+				quotes: null
+			}, {
+				expr: {
+					expr: EConst(CIdent(null))
+					pos: #pos
+				}
+				field: ref
+				quotes: null
+			}])
+			pos: #pos
+		}, TPath({
+			name: ReactComponent
+			pack: [react]
+			params: []
+			sub: ReactElement
+		}))
+		pos: #pos
+	})
+	pos: #pos
+}
+line 126: expected enum value

@@ -1,0 +1,6122 @@
+type _ExternalRelation implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  name: String
+  url: String
+  mandator: BigInt
+  detail: JSON
+  extraIds: [BigInt]
+  dataSource: String
+  sourceId: BigInt
+}
+
+"""
+A condition to be used against `_ExternalRelation` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input _ExternalRelationCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+}
+
+"""
+A filter to be used against `_ExternalRelation` object types. All fields are combined with a logical ‘and.’
+"""
+input _ExternalRelationFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [_ExternalRelationFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [_ExternalRelationFilter!]
+
+  """Negates the expression."""
+  not: _ExternalRelationFilter
+}
+
+"""An input for mutations affecting `_ExternalRelation`"""
+input _ExternalRelationInput {
+  id: BigInt
+  name: String
+  url: String
+  mandator: BigInt
+  detail: JSON
+  extraIds: [BigInt]
+  dataSource: String
+  sourceId: BigInt
+}
+
+"""
+Represents an update to a `_ExternalRelation`. Fields that are set will be updated.
+"""
+input _ExternalRelationPatch {
+  id: BigInt
+  name: String
+  url: String
+  mandator: BigInt
+  detail: JSON
+  extraIds: [BigInt]
+  dataSource: String
+  sourceId: BigInt
+}
+
+"""A connection to a list of `_ExternalRelation` values."""
+type _ExternalRelationsConnection {
+  """A list of `_ExternalRelation` objects."""
+  nodes: [_ExternalRelation!]!
+
+  """
+  A list of edges which contains the `_ExternalRelation` and cursor to aid in pagination.
+  """
+  edges: [_ExternalRelationsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `_ExternalRelation` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `_ExternalRelation` edge in the connection."""
+type _ExternalRelationsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `_ExternalRelation` at the end of the edge."""
+  node: _ExternalRelation!
+}
+
+"""Methods to use when ordering `_ExternalRelation`."""
+enum _ExternalRelationsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Account implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  contact: BigInt!
+  bankName: String!
+  bic: String
+  account: String
+  blz: String
+  iban: String!
+  creditor: BigInt!
+  signDate: Date
+  state: AccountsState
+  creationDate: Datetime
+  editedBy: BigInt!
+  lastLocktime: Datetime
+}
+
+"""
+A condition to be used against `Account` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input AccountCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `contact` field."""
+  contact: BigInt
+}
+
+"""
+A filter to be used against `Account` object types. All fields are combined with a logical ‘and.’
+"""
+input AccountFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `contact` field."""
+  contact: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [AccountFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [AccountFilter!]
+
+  """Negates the expression."""
+  not: AccountFilter
+}
+
+"""An input for mutations affecting `Account`"""
+input AccountInput {
+  id: BigInt
+  contact: BigInt!
+  bankName: String!
+  bic: String
+  account: String
+  blz: String
+  iban: String!
+  creditor: BigInt!
+  signDate: Date
+  state: AccountsState
+  creationDate: Datetime
+  editedBy: BigInt!
+  lastLocktime: Datetime
+}
+
+"""
+Represents an update to a `Account`. Fields that are set will be updated.
+"""
+input AccountPatch {
+  id: BigInt
+  contact: BigInt
+  bankName: String
+  bic: String
+  account: String
+  blz: String
+  iban: String
+  creditor: BigInt
+  signDate: Date
+  state: AccountsState
+  creationDate: Datetime
+  editedBy: BigInt
+  lastLocktime: Datetime
+}
+
+"""A connection to a list of `Account` values."""
+type AccountsConnection {
+  """A list of `Account` objects."""
+  nodes: [Account!]!
+
+  """
+  A list of edges which contains the `Account` and cursor to aid in pagination.
+  """
+  edges: [AccountsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Account` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Account` edge in the connection."""
+type AccountsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Account` at the end of the edge."""
+  node: Account!
+}
+
+"""Methods to use when ordering `Account`."""
+enum AccountsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CONTACT_ASC
+  CONTACT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+enum AccountsState {
+  ACTIVE
+  NEW
+  PASSIVE
+}
+
+"""A connection to a list of `Activity` values."""
+type ActivitiesConnection {
+  """A list of `Activity` objects."""
+  nodes: [Activity!]!
+
+  """
+  A list of edges which contains the `Activity` and cursor to aid in pagination.
+  """
+  edges: [ActivitiesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Activity` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Activity` edge in the connection."""
+type ActivitiesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Activity` at the end of the edge."""
+  node: Activity!
+}
+
+"""Methods to use when ordering `Activity`."""
+enum ActivitiesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  RESULT_ASC
+  RESULT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Activity implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  result: String
+
+  """DbQuery"""
+  request: String!
+  user: BigInt!
+  date: Datetime
+}
+
+"""
+A condition to be used against `Activity` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input ActivityCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `result` field."""
+  result: String
+}
+
+"""
+A filter to be used against `Activity` object types. All fields are combined with a logical ‘and.’
+"""
+input ActivityFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `result` field."""
+  result: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [ActivityFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [ActivityFilter!]
+
+  """Negates the expression."""
+  not: ActivityFilter
+}
+
+"""An input for mutations affecting `Activity`"""
+input ActivityInput {
+  id: BigInt
+  result: String
+
+  """DbQuery"""
+  request: String!
+  user: BigInt!
+  date: Datetime
+}
+
+"""
+Represents an update to a `Activity`. Fields that are set will be updated.
+"""
+input ActivityPatch {
+  id: BigInt
+  result: String
+
+  """DbQuery"""
+  request: String
+  user: BigInt
+  date: Datetime
+}
+
+type BankTransfer implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  agName: String!
+  agKontoOrIban: String!
+  agBlzOrBic: String!
+  zahlpflName: String!
+  zahlpflName2: String!
+  zahlpflStrasse: String!
+  zahlpflNameOrt: String!
+  zahlpflNameKtoOrIban: String!
+  zahlpflNameBlzOrBic: String!
+  betrag: Float
+  currency: String
+  zahlart: String!
+  termin: Date!
+  vwz1: String
+  vwz2: String
+  vwz3: String
+  vwz4: String
+  vwz5: String
+  vwz6: String
+  vwz7: String
+  vwz8: String
+  vwz9: String
+  baId: BigInt!
+  trackingStatus: BankTransfersTrackingStatus!
+  anforderungsDatum: Date!
+  rueckDatum: Date
+  cycle: String!
+  refId: String!
+  mandatId: String!
+  mandatDatum: Date!
+  agCreditorId: String!
+  sequenz: String!
+  superAgName: String!
+}
+
+"""
+A condition to be used against `BankTransfer` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input BankTransferCondition {
+  """Checks for equality with the object’s `betrag` field."""
+  betrag: Float
+
+  """Checks for equality with the object’s `baId` field."""
+  baId: BigInt
+}
+
+"""
+A filter to be used against `BankTransfer` object types. All fields are combined with a logical ‘and.’
+"""
+input BankTransferFilter {
+  """Filter by the object’s `betrag` field."""
+  betrag: FloatFilter
+
+  """Filter by the object’s `baId` field."""
+  baId: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [BankTransferFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [BankTransferFilter!]
+
+  """Negates the expression."""
+  not: BankTransferFilter
+}
+
+"""An input for mutations affecting `BankTransfer`"""
+input BankTransferInput {
+  agName: String!
+  agKontoOrIban: String!
+  agBlzOrBic: String!
+  zahlpflName: String!
+  zahlpflName2: String
+  zahlpflStrasse: String!
+  zahlpflNameOrt: String!
+  zahlpflNameKtoOrIban: String!
+  zahlpflNameBlzOrBic: String
+  betrag: Float
+  currency: String
+  zahlart: String
+  termin: Date!
+  vwz1: String
+  vwz2: String
+  vwz3: String
+  vwz4: String
+  vwz5: String
+  vwz6: String
+  vwz7: String
+  vwz8: String
+  vwz9: String
+  baId: BigInt
+  trackingStatus: BankTransfersTrackingStatus
+  anforderungsDatum: Date!
+  rueckDatum: Date
+  cycle: String!
+  refId: String!
+  mandatId: String!
+  mandatDatum: Date!
+  agCreditorId: String!
+  sequenz: String!
+  superAgName: String!
+}
+
+"""
+Represents an update to a `BankTransfer`. Fields that are set will be updated.
+"""
+input BankTransferPatch {
+  agName: String
+  agKontoOrIban: String
+  agBlzOrBic: String
+  zahlpflName: String
+  zahlpflName2: String
+  zahlpflStrasse: String
+  zahlpflNameOrt: String
+  zahlpflNameKtoOrIban: String
+  zahlpflNameBlzOrBic: String
+  betrag: Float
+  currency: String
+  zahlart: String
+  termin: Date
+  vwz1: String
+  vwz2: String
+  vwz3: String
+  vwz4: String
+  vwz5: String
+  vwz6: String
+  vwz7: String
+  vwz8: String
+  vwz9: String
+  baId: BigInt
+  trackingStatus: BankTransfersTrackingStatus
+  anforderungsDatum: Date
+  rueckDatum: Date
+  cycle: String
+  refId: String
+  mandatId: String
+  mandatDatum: Date
+  agCreditorId: String
+  sequenz: String
+  superAgName: String
+}
+
+"""A connection to a list of `BankTransfer` values."""
+type BankTransfersConnection {
+  """A list of `BankTransfer` objects."""
+  nodes: [BankTransfer!]!
+
+  """
+  A list of edges which contains the `BankTransfer` and cursor to aid in pagination.
+  """
+  edges: [BankTransfersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `BankTransfer` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `BankTransfer` edge in the connection."""
+type BankTransfersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `BankTransfer` at the end of the edge."""
+  node: BankTransfer!
+}
+
+"""Methods to use when ordering `BankTransfer`."""
+enum BankTransfersOrderBy {
+  NATURAL
+  BETRAG_ASC
+  BETRAG_DESC
+  BA_ID_ASC
+  BA_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+enum BankTransfersTrackingStatus {
+  NEU
+  EXPORTIERT
+  AUSGEF_HRT
+  NICHT_AUSGEF_HRT
+  R_CKLASTSCHRIFT
+  VORSCHAU
+}
+
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
+
+"""
+A filter to be used against BigInt fields. All fields are combined with a logical ‘and.’
+"""
+input BigIntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: BigInt
+
+  """Not equal to the specified value."""
+  notEqualTo: BigInt
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: BigInt
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: BigInt
+
+  """Included in the specified list."""
+  in: [BigInt!]
+
+  """Not included in the specified list."""
+  notIn: [BigInt!]
+
+  """Less than the specified value."""
+  lessThan: BigInt
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: BigInt
+
+  """Greater than the specified value."""
+  greaterThan: BigInt
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: BigInt
+}
+
+"""All input for the `cloneSchema` mutation."""
+input CloneSchemaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  sourceSchema: String
+  destSchema: String
+  includeRecs: Boolean
+}
+
+"""The output of our `cloneSchema` mutation."""
+type CloneSchemaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+type Contact implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  mandator: BigInt!
+  creationDate: Datetime
+  state: String
+  useEmail: Boolean
+  companyName: String
+  coField: String
+  phoneCode: String
+  phoneNumber: String
+  fax: String
+  title: String
+
+  """professional title"""
+  titlePro: String
+  firstName: String
+  lastName: String
+  address: String
+  address2: String
+  city: String
+  postalCode: String
+  countryCode: String
+  gender: String
+  dateOfBirth: Date
+  mobile: String
+  email: String
+  comments: String
+  editedBy: BigInt!
+  merged: [BigInt]
+  lastLocktime: Datetime
+  owner: BigInt
+}
+
+"""
+A condition to be used against `Contact` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ContactCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `firstName` field."""
+  firstName: String
+}
+
+"""
+A filter to be used against `Contact` object types. All fields are combined with a logical ‘and.’
+"""
+input ContactFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `firstName` field."""
+  firstName: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [ContactFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [ContactFilter!]
+
+  """Negates the expression."""
+  not: ContactFilter
+}
+
+"""An input for mutations affecting `Contact`"""
+input ContactInput {
+  id: BigInt
+  mandator: BigInt
+  creationDate: Datetime
+  state: String
+  useEmail: Boolean
+  companyName: String
+  coField: String
+  phoneCode: String
+  phoneNumber: String
+  fax: String
+  title: String
+
+  """professional title"""
+  titlePro: String
+  firstName: String
+  lastName: String
+  address: String
+  address2: String
+  city: String
+  postalCode: String
+  countryCode: String
+  gender: String
+  dateOfBirth: Date
+  mobile: String
+  email: String
+  comments: String
+  editedBy: BigInt
+  merged: [BigInt]
+  lastLocktime: Datetime
+  owner: BigInt
+}
+
+"""
+Represents an update to a `Contact`. Fields that are set will be updated.
+"""
+input ContactPatch {
+  id: BigInt
+  mandator: BigInt
+  creationDate: Datetime
+  state: String
+  useEmail: Boolean
+  companyName: String
+  coField: String
+  phoneCode: String
+  phoneNumber: String
+  fax: String
+  title: String
+
+  """professional title"""
+  titlePro: String
+  firstName: String
+  lastName: String
+  address: String
+  address2: String
+  city: String
+  postalCode: String
+  countryCode: String
+  gender: String
+  dateOfBirth: Date
+  mobile: String
+  email: String
+  comments: String
+  editedBy: BigInt
+  merged: [BigInt]
+  lastLocktime: Datetime
+  owner: BigInt
+}
+
+"""A connection to a list of `Contact` values."""
+type ContactsConnection {
+  """A list of `Contact` objects."""
+  nodes: [Contact!]!
+
+  """
+  A list of edges which contains the `Contact` and cursor to aid in pagination.
+  """
+  edges: [ContactsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Contact` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Contact` edge in the connection."""
+type ContactsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Contact` at the end of the edge."""
+  node: Contact!
+}
+
+"""Methods to use when ordering `Contact`."""
+enum ContactsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""All input for the create `Account` mutation."""
+input CreateAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Account` to be created by this mutation."""
+  account: AccountInput!
+}
+
+"""The output of our create `Account` mutation."""
+type CreateAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Account` that was created by this mutation."""
+  account: Account
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Account`. May be used by Relay 1."""
+  accountEdge(
+    """The method to use when ordering `Account`."""
+    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AccountsEdge
+}
+
+"""All input for the create `Activity` mutation."""
+input CreateActivityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Activity` to be created by this mutation."""
+  activity: ActivityInput!
+}
+
+"""The output of our create `Activity` mutation."""
+type CreateActivityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Activity` that was created by this mutation."""
+  activity: Activity
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Activity`. May be used by Relay 1."""
+  activityEdge(
+    """The method to use when ordering `Activity`."""
+    orderBy: [ActivitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ActivitiesEdge
+}
+
+"""All input for the create `BankTransfer` mutation."""
+input CreateBankTransferInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `BankTransfer` to be created by this mutation."""
+  bankTransfer: BankTransferInput!
+}
+
+"""The output of our create `BankTransfer` mutation."""
+type CreateBankTransferPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BankTransfer` that was created by this mutation."""
+  bankTransfer: BankTransfer
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BankTransfer`. May be used by Relay 1."""
+  bankTransferEdge(
+    """The method to use when ordering `BankTransfer`."""
+    orderBy: [BankTransfersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BankTransfersEdge
+}
+
+"""All input for the create `Contact` mutation."""
+input CreateContactInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Contact` to be created by this mutation."""
+  contact: ContactInput!
+}
+
+"""The output of our create `Contact` mutation."""
+type CreateContactPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contact` that was created by this mutation."""
+  contact: Contact
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Contact`. May be used by Relay 1."""
+  contactEdge(
+    """The method to use when ordering `Contact`."""
+    orderBy: [ContactsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContactsEdge
+}
+
+"""All input for the create `Deal` mutation."""
+input CreateDealInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Deal` to be created by this mutation."""
+  deal: DealInput!
+}
+
+"""The output of our create `Deal` mutation."""
+type CreateDealPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Deal` that was created by this mutation."""
+  deal: Deal
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Deal`. May be used by Relay 1."""
+  dealEdge(
+    """The method to use when ordering `Deal`."""
+    orderBy: [DealsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DealsEdge
+}
+
+"""All input for the create `EndReason` mutation."""
+input CreateEndReasonInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `EndReason` to be created by this mutation."""
+  endReason: EndReasonInput!
+}
+
+"""The output of our create `EndReason` mutation."""
+type CreateEndReasonPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `EndReason` that was created by this mutation."""
+  endReason: EndReason
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `EndReason`. May be used by Relay 1."""
+  endReasonEdge(
+    """The method to use when ordering `EndReason`."""
+    orderBy: [EndReasonsOrderBy!] = [NATURAL]
+  ): EndReasonsEdge
+}
+
+"""All input for the create `_ExternalRelation` mutation."""
+input CreateExternalRelationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `_ExternalRelation` to be created by this mutation."""
+  _externalRelation: _ExternalRelationInput!
+}
+
+"""The output of our create `_ExternalRelation` mutation."""
+type CreateExternalRelationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `_ExternalRelation` that was created by this mutation."""
+  _externalRelation: _ExternalRelation
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `_ExternalRelation`. May be used by Relay 1."""
+  _externalRelationEdge(
+    """The method to use when ordering `_ExternalRelation`."""
+    orderBy: [_ExternalRelationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): _ExternalRelationsEdge
+}
+
+"""All input for the create `Mandator` mutation."""
+input CreateMandatorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Mandator` to be created by this mutation."""
+  mandator: MandatorInput!
+}
+
+"""The output of our create `Mandator` mutation."""
+type CreateMandatorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Mandator` that was created by this mutation."""
+  mandator: Mandator
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Mandator`. May be used by Relay 1."""
+  mandatorEdge(
+    """The method to use when ordering `Mandator`."""
+    orderBy: [MandatorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MandatorsEdge
+}
+
+"""All input for the create `Product` mutation."""
+input CreateProductInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Product` to be created by this mutation."""
+  product: ProductInput!
+}
+
+"""The output of our create `Product` mutation."""
+type CreateProductPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Product` that was created by this mutation."""
+  product: Product
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Product`. May be used by Relay 1."""
+  productEdge(
+    """The method to use when ordering `Product`."""
+    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProductsEdge
+}
+
+"""All input for the create `Project` mutation."""
+input CreateProjectInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Project` to be created by this mutation."""
+  project: ProjectInput!
+}
+
+"""The output of our create `Project` mutation."""
+type CreateProjectPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Project` that was created by this mutation."""
+  project: Project
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Project`. May be used by Relay 1."""
+  projectEdge(
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProjectsEdge
+}
+
+"""All input for the create `Role` mutation."""
+input CreateRoleInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Role` to be created by this mutation."""
+  role: RoleInput!
+}
+
+"""The output of our create `Role` mutation."""
+type CreateRolePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Role` that was created by this mutation."""
+  role: Role
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Role`. May be used by Relay 1."""
+  roleEdge(
+    """The method to use when ordering `Role`."""
+    orderBy: [RolesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RolesEdge
+}
+
+"""All input for the create `Statement` mutation."""
+input CreateStatementInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Statement` to be created by this mutation."""
+  statement: StatementInput!
+}
+
+"""The output of our create `Statement` mutation."""
+type CreateStatementPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Statement` that was created by this mutation."""
+  statement: Statement
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Statement`. May be used by Relay 1."""
+  statementEdge(
+    """The method to use when ordering `Statement`."""
+    orderBy: [StatementsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): StatementsEdge
+}
+
+"""All input for the create `TableField` mutation."""
+input CreateTableFieldInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `TableField` to be created by this mutation."""
+  tableField: TableFieldInput!
+}
+
+"""The output of our create `TableField` mutation."""
+type CreateTableFieldPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TableField` that was created by this mutation."""
+  tableField: TableField
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `TableField`. May be used by Relay 1."""
+  tableFieldEdge(
+    """The method to use when ordering `TableField`."""
+    orderBy: [TableFieldsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TableFieldsEdge
+}
+
+"""All input for the create `UiComponent` mutation."""
+input CreateUiComponentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UiComponent` to be created by this mutation."""
+  uiComponent: UiComponentInput!
+}
+
+"""The output of our create `UiComponent` mutation."""
+type CreateUiComponentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UiComponent` that was created by this mutation."""
+  uiComponent: UiComponent
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UiComponent`. May be used by Relay 1."""
+  uiComponentEdge(
+    """The method to use when ordering `UiComponent`."""
+    orderBy: [UiComponentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UiComponentsEdge
+}
+
+"""All input for the create `UserGroup` mutation."""
+input CreateUserGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserGroup` to be created by this mutation."""
+  userGroup: UserGroupInput!
+}
+
+"""The output of our create `UserGroup` mutation."""
+type CreateUserGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserGroup` that was created by this mutation."""
+  userGroup: UserGroup
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UserGroup`. May be used by Relay 1."""
+  userGroupEdge(
+    """The method to use when ordering `UserGroup`."""
+    orderBy: [UserGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserGroupsEdge
+}
+
+"""All input for the create `User` mutation."""
+input CreateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `User` to be created by this mutation."""
+  user: UserInput!
+}
+
+"""The output of our create `User` mutation."""
+type CreateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was created by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+enum DataType {
+  NULL
+  INT
+  DATE
+  FLOAT
+  STRING
+}
+
+"""The day, does not include a time."""
+scalar Date
+
+"""
+A filter to be used against Date fields. All fields are combined with a logical ‘and.’
+"""
+input DateFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Date
+
+  """Not equal to the specified value."""
+  notEqualTo: Date
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Date
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Date
+
+  """Included in the specified list."""
+  in: [Date!]
+
+  """Not included in the specified list."""
+  notIn: [Date!]
+
+  """Less than the specified value."""
+  lessThan: Date
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Date
+
+  """Greater than the specified value."""
+  greaterThan: Date
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Date
+}
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+type Deal implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  contact: BigInt!
+  creationDate: Datetime
+  account: BigInt
+  targetAccount: BigInt!
+  startDay: String
+  startDate: Date
+  cycle: DealsCycle!
+  amount: BigFloat!
+  product: BigInt!
+  agent: BigInt
+  project: BigInt
+  status: String
+  payMethod: String
+  endDate: Date
+  endReason: BigInt
+  repeatDate: Date
+  editedBy: BigInt!
+  mandator: BigInt
+  oldActive: Boolean
+  cycleStartDate: Date
+  lastLocktime: Datetime
+}
+
+"""
+A condition to be used against `Deal` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input DealCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `contact` field."""
+  contact: BigInt
+
+  """Checks for equality with the object’s `account` field."""
+  account: BigInt
+
+  """Checks for equality with the object’s `project` field."""
+  project: BigInt
+}
+
+"""
+A filter to be used against `Deal` object types. All fields are combined with a logical ‘and.’
+"""
+input DealFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `contact` field."""
+  contact: BigIntFilter
+
+  """Filter by the object’s `account` field."""
+  account: BigIntFilter
+
+  """Filter by the object’s `project` field."""
+  project: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [DealFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [DealFilter!]
+
+  """Negates the expression."""
+  not: DealFilter
+}
+
+"""An input for mutations affecting `Deal`"""
+input DealInput {
+  id: BigInt
+  contact: BigInt!
+  creationDate: Datetime
+  account: BigInt
+  targetAccount: BigInt!
+  startDay: String
+  startDate: Date
+  cycle: DealsCycle!
+  amount: BigFloat!
+  product: BigInt!
+  agent: BigInt
+  project: BigInt
+  status: String
+  payMethod: String
+  endDate: Date
+  endReason: BigInt
+  repeatDate: Date
+  editedBy: BigInt!
+  mandator: BigInt
+  oldActive: Boolean
+  cycleStartDate: Date
+  lastLocktime: Datetime
+}
+
+"""Represents an update to a `Deal`. Fields that are set will be updated."""
+input DealPatch {
+  id: BigInt
+  contact: BigInt
+  creationDate: Datetime
+  account: BigInt
+  targetAccount: BigInt
+  startDay: String
+  startDate: Date
+  cycle: DealsCycle
+  amount: BigFloat
+  product: BigInt
+  agent: BigInt
+  project: BigInt
+  status: String
+  payMethod: String
+  endDate: Date
+  endReason: BigInt
+  repeatDate: Date
+  editedBy: BigInt
+  mandator: BigInt
+  oldActive: Boolean
+  cycleStartDate: Date
+  lastLocktime: Datetime
+}
+
+"""A connection to a list of `Deal` values."""
+type DealsConnection {
+  """A list of `Deal` objects."""
+  nodes: [Deal!]!
+
+  """
+  A list of edges which contains the `Deal` and cursor to aid in pagination.
+  """
+  edges: [DealsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Deal` you could get from the connection."""
+  totalCount: Int!
+}
+
+enum DealsCycle {
+  MONTHLY
+  QUARTERLY
+  SEMIANNUAL
+  ANNUAL
+  ONCE
+}
+
+"""A `Deal` edge in the connection."""
+type DealsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Deal` at the end of the edge."""
+  node: Deal!
+}
+
+"""Methods to use when ordering `Deal`."""
+enum DealsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CONTACT_ASC
+  CONTACT_DESC
+  ACCOUNT_ASC
+  ACCOUNT_DESC
+  PROJECT_ASC
+  PROJECT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""All input for the `deleteAccountById` mutation."""
+input DeleteAccountByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteAccount` mutation."""
+input DeleteAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Account` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Account` mutation."""
+type DeleteAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Account` that was deleted by this mutation."""
+  account: Account
+  deletedAccountId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Account`. May be used by Relay 1."""
+  accountEdge(
+    """The method to use when ordering `Account`."""
+    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AccountsEdge
+}
+
+"""All input for the `deleteActivityById` mutation."""
+input DeleteActivityByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteActivity` mutation."""
+input DeleteActivityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Activity` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Activity` mutation."""
+type DeleteActivityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Activity` that was deleted by this mutation."""
+  activity: Activity
+  deletedActivityId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Activity`. May be used by Relay 1."""
+  activityEdge(
+    """The method to use when ordering `Activity`."""
+    orderBy: [ActivitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ActivitiesEdge
+}
+
+"""All input for the `deleteBankTransferByBaId` mutation."""
+input DeleteBankTransferByBaIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  baId: BigInt!
+}
+
+"""All input for the `deleteBankTransfer` mutation."""
+input DeleteBankTransferInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `BankTransfer` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `BankTransfer` mutation."""
+type DeleteBankTransferPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BankTransfer` that was deleted by this mutation."""
+  bankTransfer: BankTransfer
+  deletedBankTransferId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BankTransfer`. May be used by Relay 1."""
+  bankTransferEdge(
+    """The method to use when ordering `BankTransfer`."""
+    orderBy: [BankTransfersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BankTransfersEdge
+}
+
+"""All input for the `deleteContactById` mutation."""
+input DeleteContactByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteContact` mutation."""
+input DeleteContactInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contact` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Contact` mutation."""
+type DeleteContactPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contact` that was deleted by this mutation."""
+  contact: Contact
+  deletedContactId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Contact`. May be used by Relay 1."""
+  contactEdge(
+    """The method to use when ordering `Contact`."""
+    orderBy: [ContactsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContactsEdge
+}
+
+"""All input for the `deleteDealById` mutation."""
+input DeleteDealByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteDeal` mutation."""
+input DeleteDealInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Deal` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Deal` mutation."""
+type DeleteDealPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Deal` that was deleted by this mutation."""
+  deal: Deal
+  deletedDealId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Deal`. May be used by Relay 1."""
+  dealEdge(
+    """The method to use when ordering `Deal`."""
+    orderBy: [DealsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DealsEdge
+}
+
+"""All input for the `deleteEndReasonById` mutation."""
+input DeleteEndReasonByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `EndReason` mutation."""
+type DeleteEndReasonPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `EndReason` that was deleted by this mutation."""
+  endReason: EndReason
+  deletedEndReasonId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `EndReason`. May be used by Relay 1."""
+  endReasonEdge(
+    """The method to use when ordering `EndReason`."""
+    orderBy: [EndReasonsOrderBy!] = [NATURAL]
+  ): EndReasonsEdge
+}
+
+"""All input for the `deleteExternalRelationById` mutation."""
+input DeleteExternalRelationByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteExternalRelationByName` mutation."""
+input DeleteExternalRelationByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  name: String!
+}
+
+"""All input for the `deleteExternalRelation` mutation."""
+input DeleteExternalRelationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `_ExternalRelation` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `_ExternalRelation` mutation."""
+type DeleteExternalRelationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `_ExternalRelation` that was deleted by this mutation."""
+  _externalRelation: _ExternalRelation
+  deletedExternalRelationId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `_ExternalRelation`. May be used by Relay 1."""
+  _externalRelationEdge(
+    """The method to use when ordering `_ExternalRelation`."""
+    orderBy: [_ExternalRelationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): _ExternalRelationsEdge
+}
+
+"""All input for the `deleteMandatorById` mutation."""
+input DeleteMandatorByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteMandator` mutation."""
+input DeleteMandatorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Mandator` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Mandator` mutation."""
+type DeleteMandatorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Mandator` that was deleted by this mutation."""
+  mandator: Mandator
+  deletedMandatorId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Mandator`. May be used by Relay 1."""
+  mandatorEdge(
+    """The method to use when ordering `Mandator`."""
+    orderBy: [MandatorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MandatorsEdge
+}
+
+"""All input for the `deleteProductById` mutation."""
+input DeleteProductByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteProduct` mutation."""
+input DeleteProductInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Product` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Product` mutation."""
+type DeleteProductPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Product` that was deleted by this mutation."""
+  product: Product
+  deletedProductId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Product`. May be used by Relay 1."""
+  productEdge(
+    """The method to use when ordering `Product`."""
+    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProductsEdge
+}
+
+"""All input for the `deleteProjectById` mutation."""
+input DeleteProjectByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteProject` mutation."""
+input DeleteProjectInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Project` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Project` mutation."""
+type DeleteProjectPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Project` that was deleted by this mutation."""
+  project: Project
+  deletedProjectId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Project`. May be used by Relay 1."""
+  projectEdge(
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProjectsEdge
+}
+
+"""All input for the `deleteRoleById` mutation."""
+input DeleteRoleByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteRole` mutation."""
+input DeleteRoleInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Role` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Role` mutation."""
+type DeleteRolePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Role` that was deleted by this mutation."""
+  role: Role
+  deletedRoleId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Role`. May be used by Relay 1."""
+  roleEdge(
+    """The method to use when ordering `Role`."""
+    orderBy: [RolesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RolesEdge
+}
+
+"""All input for the `deleteStatementById` mutation."""
+input DeleteStatementByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteStatement` mutation."""
+input DeleteStatementInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Statement` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `Statement` mutation."""
+type DeleteStatementPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Statement` that was deleted by this mutation."""
+  statement: Statement
+  deletedStatementId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Statement`. May be used by Relay 1."""
+  statementEdge(
+    """The method to use when ordering `Statement`."""
+    orderBy: [StatementsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): StatementsEdge
+}
+
+"""All input for the `deleteTableFieldById` mutation."""
+input DeleteTableFieldByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteTableField` mutation."""
+input DeleteTableFieldInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TableField` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `TableField` mutation."""
+type DeleteTableFieldPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TableField` that was deleted by this mutation."""
+  tableField: TableField
+  deletedTableFieldId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `TableField`. May be used by Relay 1."""
+  tableFieldEdge(
+    """The method to use when ordering `TableField`."""
+    orderBy: [TableFieldsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TableFieldsEdge
+}
+
+"""All input for the `deleteUiComponentById` mutation."""
+input DeleteUiComponentByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteUiComponent` mutation."""
+input DeleteUiComponentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UiComponent` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `UiComponent` mutation."""
+type DeleteUiComponentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UiComponent` that was deleted by this mutation."""
+  uiComponent: UiComponent
+  deletedUiComponentId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UiComponent`. May be used by Relay 1."""
+  uiComponentEdge(
+    """The method to use when ordering `UiComponent`."""
+    orderBy: [UiComponentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UiComponentsEdge
+}
+
+"""All input for the `deleteUserById` mutation."""
+input DeleteUserByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteUserByUserNameAndMandator` mutation."""
+input DeleteUserByUserNameAndMandatorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  userName: String!
+  mandator: BigInt!
+}
+
+"""All input for the `deleteUserGroupById` mutation."""
+input DeleteUserGroupByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteUserGroup` mutation."""
+input DeleteUserGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserGroup` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `UserGroup` mutation."""
+type DeleteUserGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserGroup` that was deleted by this mutation."""
+  userGroup: UserGroup
+  deletedUserGroupId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UserGroup`. May be used by Relay 1."""
+  userGroupEdge(
+    """The method to use when ordering `UserGroup`."""
+    orderBy: [UserGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserGroupsEdge
+}
+
+"""All input for the `deleteUser` mutation."""
+input DeleteUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The output of our delete `User` mutation."""
+type DeleteUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was deleted by this mutation."""
+  user: User
+  deletedUserId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+enum Element {
+  NONE
+  BUTTON
+  INPUT
+  HIDDEN
+  CHECKBOX
+  RADIO
+  SELECT
+  TEXTAREA
+}
+
+type EndReason {
+  id: BigInt
+  reason: String!
+  editedBy: BigInt!
+  mandator: BigInt!
+}
+
+"""
+A condition to be used against `EndReason` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input EndReasonCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `EndReason` object types. All fields are combined with a logical ‘and.’
+"""
+input EndReasonFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [EndReasonFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [EndReasonFilter!]
+
+  """Negates the expression."""
+  not: EndReasonFilter
+}
+
+"""An input for mutations affecting `EndReason`"""
+input EndReasonInput {
+  id: BigInt
+  reason: String!
+  editedBy: BigInt!
+  mandator: BigInt!
+}
+
+"""
+Represents an update to a `EndReason`. Fields that are set will be updated.
+"""
+input EndReasonPatch {
+  id: BigInt
+  reason: String
+  editedBy: BigInt
+  mandator: BigInt
+}
+
+"""A connection to a list of `EndReason` values."""
+type EndReasonsConnection {
+  """A list of `EndReason` objects."""
+  nodes: [EndReason!]!
+
+  """
+  A list of edges which contains the `EndReason` and cursor to aid in pagination.
+  """
+  edges: [EndReasonsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `EndReason` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `EndReason` edge in the connection."""
+type EndReasonsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `EndReason` at the end of the edge."""
+  node: EndReason!
+}
+
+"""Methods to use when ordering `EndReason`."""
+enum EndReasonsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+}
+
+"""
+A filter to be used against Float fields. All fields are combined with a logical ‘and.’
+"""
+input FloatFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Float
+
+  """Not equal to the specified value."""
+  notEqualTo: Float
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Float
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Float
+
+  """Included in the specified list."""
+  in: [Float!]
+
+  """Not included in the specified list."""
+  notIn: [Float!]
+
+  """Less than the specified value."""
+  lessThan: Float
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Float
+
+  """Greater than the specified value."""
+  greaterThan: Float
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Float
+}
+
+"""All input for the `getPrimaryIds` mutation."""
+input GetPrimaryIdsInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""The output of our `getPrimaryIds` mutation."""
+type GetPrimaryIdsPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  results: [GetPrimaryIdsRecord]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""The return type of our `getPrimaryIds` mutation."""
+type GetPrimaryIdsRecord {
+  tableName: String
+  columnName: String
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+A set of key/value pairs, keys are strings, values may be a string or null. Exposed as a JSON object.
+"""
+scalar KeyValueHash
+
+type Mandator implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  contact: BigInt!
+  name: String!
+  description: String
+  any: JSON
+  editedBy: BigInt!
+  parent: BigInt
+  lastLocktime: Datetime
+}
+
+"""
+A condition to be used against `Mandator` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input MandatorCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `Mandator` object types. All fields are combined with a logical ‘and.’
+"""
+input MandatorFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [MandatorFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MandatorFilter!]
+
+  """Negates the expression."""
+  not: MandatorFilter
+}
+
+"""An input for mutations affecting `Mandator`"""
+input MandatorInput {
+  id: BigInt
+  contact: BigInt!
+  name: String!
+  description: String
+  any: JSON
+  editedBy: BigInt!
+  parent: BigInt
+  lastLocktime: Datetime
+}
+
+"""
+Represents an update to a `Mandator`. Fields that are set will be updated.
+"""
+input MandatorPatch {
+  id: BigInt
+  contact: BigInt
+  name: String
+  description: String
+  any: JSON
+  editedBy: BigInt
+  parent: BigInt
+  lastLocktime: Datetime
+}
+
+"""A connection to a list of `Mandator` values."""
+type MandatorsConnection {
+  """A list of `Mandator` objects."""
+  nodes: [Mandator!]!
+
+  """
+  A list of edges which contains the `Mandator` and cursor to aid in pagination.
+  """
+  edges: [MandatorsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Mandator` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Mandator` edge in the connection."""
+type MandatorsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Mandator` at the end of the edge."""
+  node: Mandator!
+}
+
+"""Methods to use when ordering `Mandator`."""
+enum MandatorsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `_ExternalRelation`."""
+  createExternalRelation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateExternalRelationInput!
+  ): CreateExternalRelationPayload
+
+  """Creates a single `Account`."""
+  createAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAccountInput!
+  ): CreateAccountPayload
+
+  """Creates a single `Activity`."""
+  createActivity(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateActivityInput!
+  ): CreateActivityPayload
+
+  """Creates a single `BankTransfer`."""
+  createBankTransfer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateBankTransferInput!
+  ): CreateBankTransferPayload
+
+  """Creates a single `Contact`."""
+  createContact(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateContactInput!
+  ): CreateContactPayload
+
+  """Creates a single `Deal`."""
+  createDeal(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDealInput!
+  ): CreateDealPayload
+
+  """Creates a single `EndReason`."""
+  createEndReason(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateEndReasonInput!
+  ): CreateEndReasonPayload
+
+  """Creates a single `Mandator`."""
+  createMandator(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMandatorInput!
+  ): CreateMandatorPayload
+
+  """Creates a single `Product`."""
+  createProduct(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateProductInput!
+  ): CreateProductPayload
+
+  """Creates a single `Project`."""
+  createProject(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateProjectInput!
+  ): CreateProjectPayload
+
+  """Creates a single `Role`."""
+  createRole(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateRoleInput!
+  ): CreateRolePayload
+
+  """Creates a single `Statement`."""
+  createStatement(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateStatementInput!
+  ): CreateStatementPayload
+
+  """Creates a single `TableField`."""
+  createTableField(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateTableFieldInput!
+  ): CreateTableFieldPayload
+
+  """Creates a single `UiComponent`."""
+  createUiComponent(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUiComponentInput!
+  ): CreateUiComponentPayload
+
+  """Creates a single `UserGroup`."""
+  createUserGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserGroupInput!
+  ): CreateUserGroupPayload
+
+  """Creates a single `User`."""
+  createUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserInput!
+  ): CreateUserPayload
+
+  """
+  Updates a single `_ExternalRelation` using its globally unique id and a patch.
+  """
+  updateExternalRelation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExternalRelationInput!
+  ): UpdateExternalRelationPayload
+
+  """Updates a single `_ExternalRelation` using a unique key and a patch."""
+  updateExternalRelationById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExternalRelationByIdInput!
+  ): UpdateExternalRelationPayload
+
+  """Updates a single `_ExternalRelation` using a unique key and a patch."""
+  updateExternalRelationByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateExternalRelationByNameInput!
+  ): UpdateExternalRelationPayload
+
+  """Updates a single `Account` using its globally unique id and a patch."""
+  updateAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountInput!
+  ): UpdateAccountPayload
+
+  """Updates a single `Account` using a unique key and a patch."""
+  updateAccountById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByIdInput!
+  ): UpdateAccountPayload
+
+  """Updates a single `Activity` using its globally unique id and a patch."""
+  updateActivity(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateActivityInput!
+  ): UpdateActivityPayload
+
+  """Updates a single `Activity` using a unique key and a patch."""
+  updateActivityById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateActivityByIdInput!
+  ): UpdateActivityPayload
+
+  """
+  Updates a single `BankTransfer` using its globally unique id and a patch.
+  """
+  updateBankTransfer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateBankTransferInput!
+  ): UpdateBankTransferPayload
+
+  """Updates a single `BankTransfer` using a unique key and a patch."""
+  updateBankTransferByBaId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateBankTransferByBaIdInput!
+  ): UpdateBankTransferPayload
+
+  """Updates a single `Contact` using its globally unique id and a patch."""
+  updateContact(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContactInput!
+  ): UpdateContactPayload
+
+  """Updates a single `Contact` using a unique key and a patch."""
+  updateContactById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContactByIdInput!
+  ): UpdateContactPayload
+
+  """Updates a single `Deal` using its globally unique id and a patch."""
+  updateDeal(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDealInput!
+  ): UpdateDealPayload
+
+  """Updates a single `Deal` using a unique key and a patch."""
+  updateDealById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDealByIdInput!
+  ): UpdateDealPayload
+
+  """Updates a single `EndReason` using a unique key and a patch."""
+  updateEndReasonById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateEndReasonByIdInput!
+  ): UpdateEndReasonPayload
+
+  """Updates a single `Mandator` using its globally unique id and a patch."""
+  updateMandator(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMandatorInput!
+  ): UpdateMandatorPayload
+
+  """Updates a single `Mandator` using a unique key and a patch."""
+  updateMandatorById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMandatorByIdInput!
+  ): UpdateMandatorPayload
+
+  """Updates a single `Product` using its globally unique id and a patch."""
+  updateProduct(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductInput!
+  ): UpdateProductPayload
+
+  """Updates a single `Product` using a unique key and a patch."""
+  updateProductById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductByIdInput!
+  ): UpdateProductPayload
+
+  """Updates a single `Project` using its globally unique id and a patch."""
+  updateProject(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectInput!
+  ): UpdateProjectPayload
+
+  """Updates a single `Project` using a unique key and a patch."""
+  updateProjectById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectByIdInput!
+  ): UpdateProjectPayload
+
+  """Updates a single `Role` using its globally unique id and a patch."""
+  updateRole(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRoleInput!
+  ): UpdateRolePayload
+
+  """Updates a single `Role` using a unique key and a patch."""
+  updateRoleById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRoleByIdInput!
+  ): UpdateRolePayload
+
+  """Updates a single `Statement` using its globally unique id and a patch."""
+  updateStatement(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatementInput!
+  ): UpdateStatementPayload
+
+  """Updates a single `Statement` using a unique key and a patch."""
+  updateStatementById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateStatementByIdInput!
+  ): UpdateStatementPayload
+
+  """
+  Updates a single `TableField` using its globally unique id and a patch.
+  """
+  updateTableField(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTableFieldInput!
+  ): UpdateTableFieldPayload
+
+  """Updates a single `TableField` using a unique key and a patch."""
+  updateTableFieldById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTableFieldByIdInput!
+  ): UpdateTableFieldPayload
+
+  """
+  Updates a single `UiComponent` using its globally unique id and a patch.
+  """
+  updateUiComponent(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUiComponentInput!
+  ): UpdateUiComponentPayload
+
+  """Updates a single `UiComponent` using a unique key and a patch."""
+  updateUiComponentById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUiComponentByIdInput!
+  ): UpdateUiComponentPayload
+
+  """Updates a single `UserGroup` using its globally unique id and a patch."""
+  updateUserGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserGroupInput!
+  ): UpdateUserGroupPayload
+
+  """Updates a single `UserGroup` using a unique key and a patch."""
+  updateUserGroupById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserGroupByIdInput!
+  ): UpdateUserGroupPayload
+
+  """Updates a single `User` using its globally unique id and a patch."""
+  updateUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserInput!
+  ): UpdateUserPayload
+
+  """Updates a single `User` using a unique key and a patch."""
+  updateUserById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserByIdInput!
+  ): UpdateUserPayload
+
+  """Updates a single `User` using a unique key and a patch."""
+  updateUserByUserNameAndMandator(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserByUserNameAndMandatorInput!
+  ): UpdateUserPayload
+
+  """Deletes a single `_ExternalRelation` using its globally unique id."""
+  deleteExternalRelation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExternalRelationInput!
+  ): DeleteExternalRelationPayload
+
+  """Deletes a single `_ExternalRelation` using a unique key."""
+  deleteExternalRelationById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExternalRelationByIdInput!
+  ): DeleteExternalRelationPayload
+
+  """Deletes a single `_ExternalRelation` using a unique key."""
+  deleteExternalRelationByName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteExternalRelationByNameInput!
+  ): DeleteExternalRelationPayload
+
+  """Deletes a single `Account` using its globally unique id."""
+  deleteAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountInput!
+  ): DeleteAccountPayload
+
+  """Deletes a single `Account` using a unique key."""
+  deleteAccountById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountByIdInput!
+  ): DeleteAccountPayload
+
+  """Deletes a single `Activity` using its globally unique id."""
+  deleteActivity(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteActivityInput!
+  ): DeleteActivityPayload
+
+  """Deletes a single `Activity` using a unique key."""
+  deleteActivityById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteActivityByIdInput!
+  ): DeleteActivityPayload
+
+  """Deletes a single `BankTransfer` using its globally unique id."""
+  deleteBankTransfer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteBankTransferInput!
+  ): DeleteBankTransferPayload
+
+  """Deletes a single `BankTransfer` using a unique key."""
+  deleteBankTransferByBaId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteBankTransferByBaIdInput!
+  ): DeleteBankTransferPayload
+
+  """Deletes a single `Contact` using its globally unique id."""
+  deleteContact(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContactInput!
+  ): DeleteContactPayload
+
+  """Deletes a single `Contact` using a unique key."""
+  deleteContactById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContactByIdInput!
+  ): DeleteContactPayload
+
+  """Deletes a single `Deal` using its globally unique id."""
+  deleteDeal(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDealInput!
+  ): DeleteDealPayload
+
+  """Deletes a single `Deal` using a unique key."""
+  deleteDealById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDealByIdInput!
+  ): DeleteDealPayload
+
+  """Deletes a single `EndReason` using a unique key."""
+  deleteEndReasonById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteEndReasonByIdInput!
+  ): DeleteEndReasonPayload
+
+  """Deletes a single `Mandator` using its globally unique id."""
+  deleteMandator(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMandatorInput!
+  ): DeleteMandatorPayload
+
+  """Deletes a single `Mandator` using a unique key."""
+  deleteMandatorById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMandatorByIdInput!
+  ): DeleteMandatorPayload
+
+  """Deletes a single `Product` using its globally unique id."""
+  deleteProduct(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductInput!
+  ): DeleteProductPayload
+
+  """Deletes a single `Product` using a unique key."""
+  deleteProductById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductByIdInput!
+  ): DeleteProductPayload
+
+  """Deletes a single `Project` using its globally unique id."""
+  deleteProject(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectInput!
+  ): DeleteProjectPayload
+
+  """Deletes a single `Project` using a unique key."""
+  deleteProjectById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectByIdInput!
+  ): DeleteProjectPayload
+
+  """Deletes a single `Role` using its globally unique id."""
+  deleteRole(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRoleInput!
+  ): DeleteRolePayload
+
+  """Deletes a single `Role` using a unique key."""
+  deleteRoleById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRoleByIdInput!
+  ): DeleteRolePayload
+
+  """Deletes a single `Statement` using its globally unique id."""
+  deleteStatement(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatementInput!
+  ): DeleteStatementPayload
+
+  """Deletes a single `Statement` using a unique key."""
+  deleteStatementById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteStatementByIdInput!
+  ): DeleteStatementPayload
+
+  """Deletes a single `TableField` using its globally unique id."""
+  deleteTableField(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTableFieldInput!
+  ): DeleteTableFieldPayload
+
+  """Deletes a single `TableField` using a unique key."""
+  deleteTableFieldById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTableFieldByIdInput!
+  ): DeleteTableFieldPayload
+
+  """Deletes a single `UiComponent` using its globally unique id."""
+  deleteUiComponent(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUiComponentInput!
+  ): DeleteUiComponentPayload
+
+  """Deletes a single `UiComponent` using a unique key."""
+  deleteUiComponentById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUiComponentByIdInput!
+  ): DeleteUiComponentPayload
+
+  """Deletes a single `UserGroup` using its globally unique id."""
+  deleteUserGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserGroupInput!
+  ): DeleteUserGroupPayload
+
+  """Deletes a single `UserGroup` using a unique key."""
+  deleteUserGroupById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserGroupByIdInput!
+  ): DeleteUserGroupPayload
+
+  """Deletes a single `User` using its globally unique id."""
+  deleteUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `User` using a unique key."""
+  deleteUserById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserByIdInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `User` using a unique key."""
+  deleteUserByUserNameAndMandator(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserByUserNameAndMandatorInput!
+  ): DeleteUserPayload
+  cloneSchema(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CloneSchemaInput!
+  ): CloneSchemaPayload
+  getPrimaryIds(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: GetPrimaryIdsInput!
+  ): GetPrimaryIdsPayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+type Product implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  name: String!
+  description: String
+  value: BigFloat
+  attributes: JSON
+  mandator: BigInt!
+  active: Boolean
+  editedBy: BigInt!
+}
+
+"""
+A condition to be used against `Product` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProductCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `Product` object types. All fields are combined with a logical ‘and.’
+"""
+input ProductFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [ProductFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [ProductFilter!]
+
+  """Negates the expression."""
+  not: ProductFilter
+}
+
+"""An input for mutations affecting `Product`"""
+input ProductInput {
+  id: BigInt
+  name: String!
+  description: String
+  value: BigFloat
+  attributes: JSON
+  mandator: BigInt!
+  active: Boolean
+  editedBy: BigInt!
+}
+
+"""
+Represents an update to a `Product`. Fields that are set will be updated.
+"""
+input ProductPatch {
+  id: BigInt
+  name: String
+  description: String
+  value: BigFloat
+  attributes: JSON
+  mandator: BigInt
+  active: Boolean
+  editedBy: BigInt
+}
+
+"""A connection to a list of `Product` values."""
+type ProductsConnection {
+  """A list of `Product` objects."""
+  nodes: [Product!]!
+
+  """
+  A list of edges which contains the `Product` and cursor to aid in pagination.
+  """
+  edges: [ProductsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Product` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Product` edge in the connection."""
+type ProductsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Product` at the end of the edge."""
+  node: Product!
+}
+
+"""Methods to use when ordering `Product`."""
+enum ProductsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Project implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  mandator: BigInt!
+  name: String!
+  description: String
+  editedBy: BigInt!
+  provisionPercent: Float
+  cancellationLiable: Int
+  targetAccount: BigInt!
+}
+
+"""
+A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `Project` object types. All fields are combined with a logical ‘and.’
+"""
+input ProjectFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [ProjectFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [ProjectFilter!]
+
+  """Negates the expression."""
+  not: ProjectFilter
+}
+
+"""An input for mutations affecting `Project`"""
+input ProjectInput {
+  id: BigInt
+  mandator: BigInt!
+  name: String!
+  description: String
+  editedBy: BigInt!
+  provisionPercent: Float
+  cancellationLiable: Int
+  targetAccount: BigInt
+}
+
+"""
+Represents an update to a `Project`. Fields that are set will be updated.
+"""
+input ProjectPatch {
+  id: BigInt
+  mandator: BigInt
+  name: String
+  description: String
+  editedBy: BigInt
+  provisionPercent: Float
+  cancellationLiable: Int
+  targetAccount: BigInt
+}
+
+"""A connection to a list of `Project` values."""
+type ProjectsConnection {
+  """A list of `Project` objects."""
+  nodes: [Project!]!
+
+  """
+  A list of edges which contains the `Project` and cursor to aid in pagination.
+  """
+  edges: [ProjectsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Project` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Project` edge in the connection."""
+type ProjectsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Project` at the end of the edge."""
+  node: Project!
+}
+
+"""Methods to use when ordering `Project`."""
+enum ProjectsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `_ExternalRelation`."""
+  allExternalRelations(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `_ExternalRelation`."""
+    orderBy: [_ExternalRelationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: _ExternalRelationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: _ExternalRelationFilter
+  ): _ExternalRelationsConnection
+
+  """Reads and enables pagination through a set of `Account`."""
+  allAccounts(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Account`."""
+    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AccountFilter
+  ): AccountsConnection
+
+  """Reads and enables pagination through a set of `Activity`."""
+  allActivities(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Activity`."""
+    orderBy: [ActivitiesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ActivityCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ActivityFilter
+  ): ActivitiesConnection
+
+  """Reads and enables pagination through a set of `BankTransfer`."""
+  allBankTransfers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `BankTransfer`."""
+    orderBy: [BankTransfersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: BankTransferCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: BankTransferFilter
+  ): BankTransfersConnection
+
+  """Reads and enables pagination through a set of `Contact`."""
+  allContacts(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Contact`."""
+    orderBy: [ContactsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContactCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ContactFilter
+  ): ContactsConnection
+
+  """Reads and enables pagination through a set of `Deal`."""
+  allDeals(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Deal`."""
+    orderBy: [DealsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DealCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DealFilter
+  ): DealsConnection
+
+  """Reads and enables pagination through a set of `EndReason`."""
+  allEndReasons(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `EndReason`."""
+    orderBy: [EndReasonsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EndReasonCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EndReasonFilter
+  ): EndReasonsConnection
+
+  """Reads and enables pagination through a set of `Mandator`."""
+  allMandators(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Mandator`."""
+    orderBy: [MandatorsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MandatorCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MandatorFilter
+  ): MandatorsConnection
+
+  """Reads and enables pagination through a set of `Product`."""
+  allProducts(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Product`."""
+    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProductCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProductFilter
+  ): ProductsConnection
+
+  """Reads and enables pagination through a set of `Project`."""
+  allProjects(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
+  ): ProjectsConnection
+
+  """Reads and enables pagination through a set of `Role`."""
+  allRoles(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Role`."""
+    orderBy: [RolesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RoleCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RoleFilter
+  ): RolesConnection
+
+  """Reads and enables pagination through a set of `Statement`."""
+  allStatements(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Statement`."""
+    orderBy: [StatementsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: StatementCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: StatementFilter
+  ): StatementsConnection
+
+  """Reads and enables pagination through a set of `TableField`."""
+  allTableFields(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TableField`."""
+    orderBy: [TableFieldsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TableFieldCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TableFieldFilter
+  ): TableFieldsConnection
+
+  """Reads and enables pagination through a set of `UiComponent`."""
+  allUiComponents(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UiComponent`."""
+    orderBy: [UiComponentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UiComponentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UiComponentFilter
+  ): UiComponentsConnection
+
+  """Reads and enables pagination through a set of `UserGroup`."""
+  allUserGroups(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserGroup`."""
+    orderBy: [UserGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserGroupCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserGroupFilter
+  ): UserGroupsConnection
+
+  """Reads and enables pagination through a set of `User`."""
+  allUsers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+  ): UsersConnection
+  _externalRelationById(id: BigInt!): _ExternalRelation
+  _externalRelationByName(name: String!): _ExternalRelation
+  accountById(id: BigInt!): Account
+  activityById(id: BigInt!): Activity
+  bankTransferByBaId(baId: BigInt!): BankTransfer
+  contactById(id: BigInt!): Contact
+  dealById(id: BigInt!): Deal
+  endReasonById(id: BigInt!): EndReason
+  mandatorById(id: BigInt!): Mandator
+  productById(id: BigInt!): Product
+  projectById(id: BigInt!): Project
+  roleById(id: BigInt!): Role
+  statementById(id: BigInt!): Statement
+  tableFieldById(id: BigInt!): TableField
+  uiComponentById(id: BigInt!): UiComponent
+  userGroupById(id: BigInt!): UserGroup
+  userById(id: BigInt!): User
+  userByUserNameAndMandator(userName: String!, mandator: BigInt!): User
+
+  """Reads and enables pagination through a set of `Contact`."""
+  findContacts(
+    _w: KeyValueHash
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ContactFilter
+  ): ContactsConnection!
+
+  """Reads and enables pagination through a set of `Contact`."""
+  findContacts2(
+    _w: String
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ContactFilter
+  ): ContactsConnection!
+
+  """Reads and enables pagination through a set of `Contact`."""
+  found(
+    _f: KeyValueHash
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ContactFilter
+  ): ContactsConnection!
+  getPrimaryId(table_: String): String
+
+  """Reads a single `_ExternalRelation` using its globally unique `ID`."""
+  _externalRelation(
+    """
+    The globally unique `ID` to be used in selecting a single `_ExternalRelation`.
+    """
+    nodeId: ID!
+  ): _ExternalRelation
+
+  """Reads a single `Account` using its globally unique `ID`."""
+  account(
+    """The globally unique `ID` to be used in selecting a single `Account`."""
+    nodeId: ID!
+  ): Account
+
+  """Reads a single `Activity` using its globally unique `ID`."""
+  activity(
+    """The globally unique `ID` to be used in selecting a single `Activity`."""
+    nodeId: ID!
+  ): Activity
+
+  """Reads a single `BankTransfer` using its globally unique `ID`."""
+  bankTransfer(
+    """
+    The globally unique `ID` to be used in selecting a single `BankTransfer`.
+    """
+    nodeId: ID!
+  ): BankTransfer
+
+  """Reads a single `Contact` using its globally unique `ID`."""
+  contact(
+    """The globally unique `ID` to be used in selecting a single `Contact`."""
+    nodeId: ID!
+  ): Contact
+
+  """Reads a single `Deal` using its globally unique `ID`."""
+  deal(
+    """The globally unique `ID` to be used in selecting a single `Deal`."""
+    nodeId: ID!
+  ): Deal
+
+  """Reads a single `Mandator` using its globally unique `ID`."""
+  mandator(
+    """The globally unique `ID` to be used in selecting a single `Mandator`."""
+    nodeId: ID!
+  ): Mandator
+
+  """Reads a single `Product` using its globally unique `ID`."""
+  product(
+    """The globally unique `ID` to be used in selecting a single `Product`."""
+    nodeId: ID!
+  ): Product
+
+  """Reads a single `Project` using its globally unique `ID`."""
+  project(
+    """The globally unique `ID` to be used in selecting a single `Project`."""
+    nodeId: ID!
+  ): Project
+
+  """Reads a single `Role` using its globally unique `ID`."""
+  role(
+    """The globally unique `ID` to be used in selecting a single `Role`."""
+    nodeId: ID!
+  ): Role
+
+  """Reads a single `Statement` using its globally unique `ID`."""
+  statement(
+    """The globally unique `ID` to be used in selecting a single `Statement`."""
+    nodeId: ID!
+  ): Statement
+
+  """Reads a single `TableField` using its globally unique `ID`."""
+  tableField(
+    """
+    The globally unique `ID` to be used in selecting a single `TableField`.
+    """
+    nodeId: ID!
+  ): TableField
+
+  """Reads a single `UiComponent` using its globally unique `ID`."""
+  uiComponent(
+    """
+    The globally unique `ID` to be used in selecting a single `UiComponent`.
+    """
+    nodeId: ID!
+  ): UiComponent
+
+  """Reads a single `UserGroup` using its globally unique `ID`."""
+  userGroup(
+    """The globally unique `ID` to be used in selecting a single `UserGroup`."""
+    nodeId: ID!
+  ): UserGroup
+
+  """Reads a single `User` using its globally unique `ID`."""
+  user(
+    """The globally unique `ID` to be used in selecting a single `User`."""
+    nodeId: ID!
+  ): User
+}
+
+type Role implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  name: String!
+  description: String
+  permissions: JSON!
+  editedBy: BigInt!
+  mandator: BigInt!
+}
+
+"""
+A condition to be used against `Role` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input RoleCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `Role` object types. All fields are combined with a logical ‘and.’
+"""
+input RoleFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [RoleFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [RoleFilter!]
+
+  """Negates the expression."""
+  not: RoleFilter
+}
+
+"""An input for mutations affecting `Role`"""
+input RoleInput {
+  id: BigInt
+  name: String!
+  description: String
+  permissions: JSON
+  editedBy: BigInt!
+  mandator: BigInt!
+}
+
+"""Represents an update to a `Role`. Fields that are set will be updated."""
+input RolePatch {
+  id: BigInt
+  name: String
+  description: String
+  permissions: JSON
+  editedBy: BigInt
+  mandator: BigInt
+}
+
+"""A connection to a list of `Role` values."""
+type RolesConnection {
+  """A list of `Role` objects."""
+  nodes: [Role!]!
+
+  """
+  A list of edges which contains the `Role` and cursor to aid in pagination.
+  """
+  edges: [RolesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Role` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Role` edge in the connection."""
+type RolesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Role` at the end of the edge."""
+  node: Role!
+}
+
+"""Methods to use when ordering `Role`."""
+enum RolesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type Statement implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  a: BigInt!
+  b: BigInt!
+  c: Date!
+  d: Date!
+  e: Float!
+  f: String!
+  g: BigInt
+  h: String!
+  i: String!
+  j: String!
+  k: String!
+  l: String!
+  m: String!
+  n: String!
+  o: String!
+  p: String!
+  q: String!
+  r: String!
+  s: String!
+  t: String!
+  u: String!
+  v: String!
+  w: String!
+  x: String!
+  y: String!
+  z: String!
+  aa: BigInt
+  processed: Int!
+  id: BigInt!
+  editedBy: BigInt!
+  mandator: BigInt
+}
+
+"""
+A condition to be used against `Statement` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input StatementCondition {
+  """Checks for equality with the object’s `d` field."""
+  d: Date
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `Statement` object types. All fields are combined with a logical ‘and.’
+"""
+input StatementFilter {
+  """Filter by the object’s `d` field."""
+  d: DateFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [StatementFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [StatementFilter!]
+
+  """Negates the expression."""
+  not: StatementFilter
+}
+
+"""An input for mutations affecting `Statement`"""
+input StatementInput {
+  a: BigInt!
+  b: BigInt!
+  c: Date!
+  d: Date!
+  e: Float!
+  f: String
+  g: BigInt
+  h: String
+  i: String
+  j: String
+  k: String
+  l: String
+  m: String
+  n: String
+  o: String
+  p: String
+  q: String
+  r: String
+  s: String
+  t: String
+  u: String
+  v: String
+  w: String
+  x: String
+  y: String
+  z: String
+  aa: BigInt
+  processed: Int
+  id: BigInt
+  editedBy: BigInt!
+  mandator: BigInt
+}
+
+"""
+Represents an update to a `Statement`. Fields that are set will be updated.
+"""
+input StatementPatch {
+  a: BigInt
+  b: BigInt
+  c: Date
+  d: Date
+  e: Float
+  f: String
+  g: BigInt
+  h: String
+  i: String
+  j: String
+  k: String
+  l: String
+  m: String
+  n: String
+  o: String
+  p: String
+  q: String
+  r: String
+  s: String
+  t: String
+  u: String
+  v: String
+  w: String
+  x: String
+  y: String
+  z: String
+  aa: BigInt
+  processed: Int
+  id: BigInt
+  editedBy: BigInt
+  mandator: BigInt
+}
+
+"""A connection to a list of `Statement` values."""
+type StatementsConnection {
+  """A list of `Statement` objects."""
+  nodes: [Statement!]!
+
+  """
+  A list of edges which contains the `Statement` and cursor to aid in pagination.
+  """
+  edges: [StatementsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Statement` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Statement` edge in the connection."""
+type StatementsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Statement` at the end of the edge."""
+  node: Statement!
+}
+
+"""Methods to use when ordering `Statement`."""
+enum StatementsOrderBy {
+  NATURAL
+  D_ASC
+  D_DESC
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any
+  single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches
+  any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+}
+
+type TableField implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  tableName: String!
+  mandator: BigInt
+  fieldName: String!
+  readonly: Boolean
+  element: Element
+  any: JSON!
+  required: Boolean
+  useAsIndex: Boolean
+  adminOnly: Boolean
+  fieldType: DataType
+}
+
+"""
+A condition to be used against `TableField` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input TableFieldCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `TableField` object types. All fields are combined with a logical ‘and.’
+"""
+input TableFieldFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [TableFieldFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TableFieldFilter!]
+
+  """Negates the expression."""
+  not: TableFieldFilter
+}
+
+"""An input for mutations affecting `TableField`"""
+input TableFieldInput {
+  id: BigInt
+  tableName: String
+  mandator: BigInt
+  fieldName: String
+  readonly: Boolean
+  element: Element
+  any: JSON
+  required: Boolean
+  useAsIndex: Boolean
+  adminOnly: Boolean
+  fieldType: DataType
+}
+
+"""
+Represents an update to a `TableField`. Fields that are set will be updated.
+"""
+input TableFieldPatch {
+  id: BigInt
+  tableName: String
+  mandator: BigInt
+  fieldName: String
+  readonly: Boolean
+  element: Element
+  any: JSON
+  required: Boolean
+  useAsIndex: Boolean
+  adminOnly: Boolean
+  fieldType: DataType
+}
+
+"""A connection to a list of `TableField` values."""
+type TableFieldsConnection {
+  """A list of `TableField` objects."""
+  nodes: [TableField!]!
+
+  """
+  A list of edges which contains the `TableField` and cursor to aid in pagination.
+  """
+  edges: [TableFieldsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `TableField` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `TableField` edge in the connection."""
+type TableFieldsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TableField` at the end of the edge."""
+  node: TableField!
+}
+
+"""Methods to use when ordering `TableField`."""
+enum TableFieldsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type UiComponent implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  key: String
+  content: String
+  classPath: String
+  component: String
+  editedBy: Int!
+  updatedAt: Datetime
+  locale: String
+  mandator: BigInt
+}
+
+"""
+A condition to be used against `UiComponent` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UiComponentCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+}
+
+"""
+A filter to be used against `UiComponent` object types. All fields are combined with a logical ‘and.’
+"""
+input UiComponentFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [UiComponentFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UiComponentFilter!]
+
+  """Negates the expression."""
+  not: UiComponentFilter
+}
+
+"""An input for mutations affecting `UiComponent`"""
+input UiComponentInput {
+  id: BigInt
+  key: String
+  content: String
+  classPath: String
+  component: String
+  editedBy: Int!
+  updatedAt: Datetime
+  locale: String
+  mandator: BigInt
+}
+
+"""
+Represents an update to a `UiComponent`. Fields that are set will be updated.
+"""
+input UiComponentPatch {
+  id: BigInt
+  key: String
+  content: String
+  classPath: String
+  component: String
+  editedBy: Int
+  updatedAt: Datetime
+  locale: String
+  mandator: BigInt
+}
+
+"""A connection to a list of `UiComponent` values."""
+type UiComponentsConnection {
+  """A list of `UiComponent` objects."""
+  nodes: [UiComponent!]!
+
+  """
+  A list of edges which contains the `UiComponent` and cursor to aid in pagination.
+  """
+  edges: [UiComponentsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UiComponent` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UiComponent` edge in the connection."""
+type UiComponentsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UiComponent` at the end of the edge."""
+  node: UiComponent!
+}
+
+"""Methods to use when ordering `UiComponent`."""
+enum UiComponentsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""All input for the `updateAccountById` mutation."""
+input UpdateAccountByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  accountPatch: AccountPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateAccount` mutation."""
+input UpdateAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Account` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  accountPatch: AccountPatch!
+}
+
+"""The output of our update `Account` mutation."""
+type UpdateAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Account` that was updated by this mutation."""
+  account: Account
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Account`. May be used by Relay 1."""
+  accountEdge(
+    """The method to use when ordering `Account`."""
+    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AccountsEdge
+}
+
+"""All input for the `updateActivityById` mutation."""
+input UpdateActivityByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Activity` being updated.
+  """
+  activityPatch: ActivityPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateActivity` mutation."""
+input UpdateActivityInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Activity` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Activity` being updated.
+  """
+  activityPatch: ActivityPatch!
+}
+
+"""The output of our update `Activity` mutation."""
+type UpdateActivityPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Activity` that was updated by this mutation."""
+  activity: Activity
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Activity`. May be used by Relay 1."""
+  activityEdge(
+    """The method to use when ordering `Activity`."""
+    orderBy: [ActivitiesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ActivitiesEdge
+}
+
+"""All input for the `updateBankTransferByBaId` mutation."""
+input UpdateBankTransferByBaIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `BankTransfer` being updated.
+  """
+  bankTransferPatch: BankTransferPatch!
+  baId: BigInt!
+}
+
+"""All input for the `updateBankTransfer` mutation."""
+input UpdateBankTransferInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `BankTransfer` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `BankTransfer` being updated.
+  """
+  bankTransferPatch: BankTransferPatch!
+}
+
+"""The output of our update `BankTransfer` mutation."""
+type UpdateBankTransferPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BankTransfer` that was updated by this mutation."""
+  bankTransfer: BankTransfer
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BankTransfer`. May be used by Relay 1."""
+  bankTransferEdge(
+    """The method to use when ordering `BankTransfer`."""
+    orderBy: [BankTransfersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BankTransfersEdge
+}
+
+"""All input for the `updateContactById` mutation."""
+input UpdateContactByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Contact` being updated.
+  """
+  contactPatch: ContactPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateContact` mutation."""
+input UpdateContactInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contact` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Contact` being updated.
+  """
+  contactPatch: ContactPatch!
+}
+
+"""The output of our update `Contact` mutation."""
+type UpdateContactPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contact` that was updated by this mutation."""
+  contact: Contact
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Contact`. May be used by Relay 1."""
+  contactEdge(
+    """The method to use when ordering `Contact`."""
+    orderBy: [ContactsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContactsEdge
+}
+
+"""All input for the `updateDealById` mutation."""
+input UpdateDealByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Deal` being updated.
+  """
+  dealPatch: DealPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateDeal` mutation."""
+input UpdateDealInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Deal` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Deal` being updated.
+  """
+  dealPatch: DealPatch!
+}
+
+"""The output of our update `Deal` mutation."""
+type UpdateDealPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Deal` that was updated by this mutation."""
+  deal: Deal
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Deal`. May be used by Relay 1."""
+  dealEdge(
+    """The method to use when ordering `Deal`."""
+    orderBy: [DealsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DealsEdge
+}
+
+"""All input for the `updateEndReasonById` mutation."""
+input UpdateEndReasonByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `EndReason` being updated.
+  """
+  endReasonPatch: EndReasonPatch!
+  id: BigInt!
+}
+
+"""The output of our update `EndReason` mutation."""
+type UpdateEndReasonPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `EndReason` that was updated by this mutation."""
+  endReason: EndReason
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `EndReason`. May be used by Relay 1."""
+  endReasonEdge(
+    """The method to use when ordering `EndReason`."""
+    orderBy: [EndReasonsOrderBy!] = [NATURAL]
+  ): EndReasonsEdge
+}
+
+"""All input for the `updateExternalRelationById` mutation."""
+input UpdateExternalRelationByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `_ExternalRelation` being updated.
+  """
+  _externalRelationPatch: _ExternalRelationPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateExternalRelationByName` mutation."""
+input UpdateExternalRelationByNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `_ExternalRelation` being updated.
+  """
+  _externalRelationPatch: _ExternalRelationPatch!
+  name: String!
+}
+
+"""All input for the `updateExternalRelation` mutation."""
+input UpdateExternalRelationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `_ExternalRelation` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `_ExternalRelation` being updated.
+  """
+  _externalRelationPatch: _ExternalRelationPatch!
+}
+
+"""The output of our update `_ExternalRelation` mutation."""
+type UpdateExternalRelationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `_ExternalRelation` that was updated by this mutation."""
+  _externalRelation: _ExternalRelation
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `_ExternalRelation`. May be used by Relay 1."""
+  _externalRelationEdge(
+    """The method to use when ordering `_ExternalRelation`."""
+    orderBy: [_ExternalRelationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): _ExternalRelationsEdge
+}
+
+"""All input for the `updateMandatorById` mutation."""
+input UpdateMandatorByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Mandator` being updated.
+  """
+  mandatorPatch: MandatorPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateMandator` mutation."""
+input UpdateMandatorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Mandator` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Mandator` being updated.
+  """
+  mandatorPatch: MandatorPatch!
+}
+
+"""The output of our update `Mandator` mutation."""
+type UpdateMandatorPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Mandator` that was updated by this mutation."""
+  mandator: Mandator
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Mandator`. May be used by Relay 1."""
+  mandatorEdge(
+    """The method to use when ordering `Mandator`."""
+    orderBy: [MandatorsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MandatorsEdge
+}
+
+"""All input for the `updateProductById` mutation."""
+input UpdateProductByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Product` being updated.
+  """
+  productPatch: ProductPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateProduct` mutation."""
+input UpdateProductInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Product` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Product` being updated.
+  """
+  productPatch: ProductPatch!
+}
+
+"""The output of our update `Product` mutation."""
+type UpdateProductPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Product` that was updated by this mutation."""
+  product: Product
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Product`. May be used by Relay 1."""
+  productEdge(
+    """The method to use when ordering `Product`."""
+    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProductsEdge
+}
+
+"""All input for the `updateProjectById` mutation."""
+input UpdateProjectByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Project` being updated.
+  """
+  projectPatch: ProjectPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateProject` mutation."""
+input UpdateProjectInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Project` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Project` being updated.
+  """
+  projectPatch: ProjectPatch!
+}
+
+"""The output of our update `Project` mutation."""
+type UpdateProjectPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Project` that was updated by this mutation."""
+  project: Project
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Project`. May be used by Relay 1."""
+  projectEdge(
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ProjectsEdge
+}
+
+"""All input for the `updateRoleById` mutation."""
+input UpdateRoleByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Role` being updated.
+  """
+  rolePatch: RolePatch!
+  id: BigInt!
+}
+
+"""All input for the `updateRole` mutation."""
+input UpdateRoleInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Role` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Role` being updated.
+  """
+  rolePatch: RolePatch!
+}
+
+"""The output of our update `Role` mutation."""
+type UpdateRolePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Role` that was updated by this mutation."""
+  role: Role
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Role`. May be used by Relay 1."""
+  roleEdge(
+    """The method to use when ordering `Role`."""
+    orderBy: [RolesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RolesEdge
+}
+
+"""All input for the `updateStatementById` mutation."""
+input UpdateStatementByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Statement` being updated.
+  """
+  statementPatch: StatementPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateStatement` mutation."""
+input UpdateStatementInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Statement` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Statement` being updated.
+  """
+  statementPatch: StatementPatch!
+}
+
+"""The output of our update `Statement` mutation."""
+type UpdateStatementPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Statement` that was updated by this mutation."""
+  statement: Statement
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Statement`. May be used by Relay 1."""
+  statementEdge(
+    """The method to use when ordering `Statement`."""
+    orderBy: [StatementsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): StatementsEdge
+}
+
+"""All input for the `updateTableFieldById` mutation."""
+input UpdateTableFieldByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TableField` being updated.
+  """
+  tableFieldPatch: TableFieldPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateTableField` mutation."""
+input UpdateTableFieldInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TableField` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `TableField` being updated.
+  """
+  tableFieldPatch: TableFieldPatch!
+}
+
+"""The output of our update `TableField` mutation."""
+type UpdateTableFieldPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TableField` that was updated by this mutation."""
+  tableField: TableField
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `TableField`. May be used by Relay 1."""
+  tableFieldEdge(
+    """The method to use when ordering `TableField`."""
+    orderBy: [TableFieldsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TableFieldsEdge
+}
+
+"""All input for the `updateUiComponentById` mutation."""
+input UpdateUiComponentByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `UiComponent` being updated.
+  """
+  uiComponentPatch: UiComponentPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateUiComponent` mutation."""
+input UpdateUiComponentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UiComponent` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UiComponent` being updated.
+  """
+  uiComponentPatch: UiComponentPatch!
+}
+
+"""The output of our update `UiComponent` mutation."""
+type UpdateUiComponentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UiComponent` that was updated by this mutation."""
+  uiComponent: UiComponent
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UiComponent`. May be used by Relay 1."""
+  uiComponentEdge(
+    """The method to use when ordering `UiComponent`."""
+    orderBy: [UiComponentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UiComponentsEdge
+}
+
+"""All input for the `updateUserById` mutation."""
+input UpdateUserByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateUserByUserNameAndMandator` mutation."""
+input UpdateUserByUserNameAndMandatorInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+  userName: String!
+  mandator: BigInt!
+}
+
+"""All input for the `updateUserGroupById` mutation."""
+input UpdateUserGroupByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `UserGroup` being updated.
+  """
+  userGroupPatch: UserGroupPatch!
+  id: BigInt!
+}
+
+"""All input for the `updateUserGroup` mutation."""
+input UpdateUserGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserGroup` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserGroup` being updated.
+  """
+  userGroupPatch: UserGroupPatch!
+}
+
+"""The output of our update `UserGroup` mutation."""
+type UpdateUserGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserGroup` that was updated by this mutation."""
+  userGroup: UserGroup
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `UserGroup`. May be used by Relay 1."""
+  userGroupEdge(
+    """The method to use when ordering `UserGroup`."""
+    orderBy: [UserGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserGroupsEdge
+}
+
+"""All input for the `updateUser` mutation."""
+input UpdateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+}
+
+"""The output of our update `User` mutation."""
+type UpdateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was updated by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+type User implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  contact: BigInt!
+  lastLogin: Datetime
+  password: String
+  userName: String!
+  active: Boolean
+  editedBy: BigInt
+  editing: JSON
+  settings: JSON
+  external: JSON
+  userGroup: BigInt
+  changePassRequired: Boolean
+  online: Boolean
+  lastRequestTime: Datetime
+  lastError: String
+  mandator: BigInt!
+  lastLocktime: Datetime
+  phash: String
+}
+
+"""
+A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input UserCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `contact` field."""
+  contact: BigInt
+
+  """Checks for equality with the object’s `userName` field."""
+  userName: String
+}
+
+"""
+A filter to be used against `User` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `contact` field."""
+  contact: BigIntFilter
+
+  """Filter by the object’s `userName` field."""
+  userName: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserFilter!]
+
+  """Negates the expression."""
+  not: UserFilter
+}
+
+type UserGroup implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: BigInt!
+  name: String!
+  description: String
+
+  """{mandator:[{Componnent:actions[]}]}"""
+  can: JSON
+  mandator: BigInt!
+  editedBy: BigInt!
+}
+
+"""
+A condition to be used against `UserGroup` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserGroupCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+}
+
+"""
+A filter to be used against `UserGroup` object types. All fields are combined with a logical ‘and.’
+"""
+input UserGroupFilter {
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserGroupFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserGroupFilter!]
+
+  """Negates the expression."""
+  not: UserGroupFilter
+}
+
+"""An input for mutations affecting `UserGroup`"""
+input UserGroupInput {
+  id: BigInt
+  name: String!
+  description: String
+
+  """{mandator:[{Componnent:actions[]}]}"""
+  can: JSON
+  mandator: BigInt!
+  editedBy: BigInt!
+}
+
+"""
+Represents an update to a `UserGroup`. Fields that are set will be updated.
+"""
+input UserGroupPatch {
+  id: BigInt
+  name: String
+  description: String
+
+  """{mandator:[{Componnent:actions[]}]}"""
+  can: JSON
+  mandator: BigInt
+  editedBy: BigInt
+}
+
+"""A connection to a list of `UserGroup` values."""
+type UserGroupsConnection {
+  """A list of `UserGroup` objects."""
+  nodes: [UserGroup!]!
+
+  """
+  A list of edges which contains the `UserGroup` and cursor to aid in pagination.
+  """
+  edges: [UserGroupsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserGroup` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserGroup` edge in the connection."""
+type UserGroupsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserGroup` at the end of the edge."""
+  node: UserGroup!
+}
+
+"""Methods to use when ordering `UserGroup`."""
+enum UserGroupsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""An input for mutations affecting `User`"""
+input UserInput {
+  id: BigInt
+  contact: BigInt
+  lastLogin: Datetime
+  password: String
+  userName: String!
+  active: Boolean
+  editedBy: BigInt
+  editing: JSON
+  settings: JSON
+  external: JSON
+  userGroup: BigInt
+  changePassRequired: Boolean
+  online: Boolean
+  lastRequestTime: Datetime
+  lastError: String
+  mandator: BigInt
+  lastLocktime: Datetime
+  phash: String
+}
+
+"""Represents an update to a `User`. Fields that are set will be updated."""
+input UserPatch {
+  id: BigInt
+  contact: BigInt
+  lastLogin: Datetime
+  password: String
+  userName: String
+  active: Boolean
+  editedBy: BigInt
+  editing: JSON
+  settings: JSON
+  external: JSON
+  userGroup: BigInt
+  changePassRequired: Boolean
+  online: Boolean
+  lastRequestTime: Datetime
+  lastError: String
+  mandator: BigInt
+  lastLocktime: Datetime
+  phash: String
+}
+
+"""A connection to a list of `User` values."""
+type UsersConnection {
+  """A list of `User` objects."""
+  nodes: [User!]!
+
+  """
+  A list of edges which contains the `User` and cursor to aid in pagination.
+  """
+  edges: [UsersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `User` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `User` edge in the connection."""
+type UsersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `User` at the end of the edge."""
+  node: User!
+}
+
+"""Methods to use when ordering `User`."""
+enum UsersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CONTACT_ASC
+  CONTACT_DESC
+  USER_NAME_ASC
+  USER_NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}

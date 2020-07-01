@@ -1,0 +1,13 @@
+{
+  "name": "Ajax",
+  "url" : "https://github.com/FuzzyWuzzie/haxe-Ajax",
+  "license": "MIT",
+  "tags": ["js"],
+  "description": "A simple library for firing promise-based 'ajax' requests (useful when interacting with REST APIs).",
+  "version": "1.1.0",
+  "releasenote": "Added ability to set headers and use a string instead of dynamic object.",
+  "contributors": ["FuzzyWuzzie"],
+  "dependencies": {
+  	"promhx": ""
+  }
+}

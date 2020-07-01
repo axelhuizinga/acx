@@ -1,0 +1,11 @@
+ {
+  allEndReasons {
+    edges {
+      node {
+        id,
+        reason,
+        mandator
+      }
+    }
+  }
+}

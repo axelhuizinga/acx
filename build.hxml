@@ -1,0 +1,21 @@
+-lib apollo
+-lib haxe-loader
+#-lib haxe-graphql:git:https://github.com/jcward/haxe-graphql.git
+#-lib haxe-apollo:git:git@github.com:kLabz/haxe-apollo.git
+-lib react-router-4
+-lib react-next:git:https://github.com/kLabz/haxe-react.git
+-lib js-object
+#-lib Ajax
+
+-cp /opt/src/lib
+#-cp ../lib
+-cp lib
+
+--macro "addGlobalMetadata('', '@:build(graphql.GraphQLMeta.build())')"
+-js public/app.js
+-dce std
+#--no-traces
+#-D eval-stack
+-D no-deprecation-warnings
+-D react_auto_jsx
+-main src.Go

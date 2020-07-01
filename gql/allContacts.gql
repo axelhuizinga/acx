@@ -1,0 +1,13 @@
+{
+  allContacts {
+    edges {
+      node {
+		nodeId
+        id
+        firstName
+        lastName
+		dateOfBirth
+      }
+    }
+  }
+}
